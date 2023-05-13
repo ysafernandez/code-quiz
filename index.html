@@ -1,17 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Code Quiz</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>  
-    <h1 class="time" style="text-align:center;"></h1>
-    <div id="main"> <button id="generate" class="btn">
-        START QUIZ
-    </button></div>
-   
+
+<body>
+    <header>
+        <div id="main">
+            <a href="/highscore.html" id="highscore-btn" class="btn">View high score</a>
+            <div id="display">Time: 0
+    </header>
+    <div class="container">
+        <section>
+            <h1 class="time" style="text-align:center;">Coding Quiz Challenge</h1>
+            <p>Try to answer the following code-related questions within the time limit.
+                <br>Keep in mind that incorrect answers will penalize your score/time by 10 seconds!<br> <br>
+                <button id="generate" class="btn">Start Quiz</button>
+            </p>
+        </section>
+    </div>
+    </div>
+
+        <section class="hide question-container">
+        <div id="question">Question goes here</div><br><br>
+        <div id="answer-buttons" class="btn-grid">
+            <button id="answer1" class="btn" onclick="selectAnswer(event)"> Answer 1</button><br>
+            <button id="answer2" class="btn" onclick="selectAnswer(event)"> Answer 2</button> <br>
+            <button id="answer3" class="btn" onclick="selectAnswer(event)"> Answer 3</button><br>
+            <button id="answer4" class="btn" onclick="selectAnswer(event)"> Answer 4</button><br><br><br>
+            <div class="hide display-result">Correct!</div>
+            <div class="hide display-result-again">Wrong!</div>
+        </section>
+
+
+
+
     <script src="./script.js"></script>
 </body>
+
 </html>
