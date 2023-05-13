@@ -5,8 +5,10 @@ var startButton = document.querySelector("#generate")
 var questionContainerElement = document.getElementById("question-container")
 var questionElement = document.getElementById("question")
 var answerButtonsElement = document.getElementById("answer-button")
+var scoreElement = document.getElementById("pointScore")
 var shuffledQuestions, currentQuestionIndex
-var score = 0;
+//var lastQuestion = questionaire.length - 1
+let score = 0
 
 
 var questionaire = [
@@ -27,7 +29,12 @@ var questionaire = [
     },
     {
         question: "String values must be enclosed within ______ when being assigned to variables.",
-        answers: ["commas", "curley brackets", "quotes", "parenthesis"],
+        answers: ["commas", "curly brackets", "quotes", "parenthesis"],
+        correct: "quotes"
+    },
+    {
+        question: "String values must be enclosed within ______ when being assigned to variables.",
+        answers: ["commas", "curly brackets", "quotes", "parenthesis"],
         correct: "quotes"
     }
 ]
@@ -50,13 +57,9 @@ function setTime() {
         if (secondsLeft === 0) {
             // Stops execution of action at set interval
             clearInterval(timerInterval);
-            displayMessage();
+            getScore()
         }
     }, 1000);
-}
-
-function displayMessage() {
-    timeEl.textContent = "Time is up!";
 }
 
 
@@ -96,34 +99,38 @@ function selectAnswer(event) {
     var selectedButton = event.target
     questionaire[currentQuestionIndex].correct
     console.log(questionaire[currentQuestionIndex].correct)
-    if(event.target.innerText === questionaire[currentQuestionIndex].correct){
+    if (event.target.innerText === questionaire[currentQuestionIndex].correct) {
         console.log("correct")
+        score += 1
+        //scoreCounterElement.innerText = + score;
+        console.log("score")
         document.querySelector(".display-result").classList.remove("hide")
         document.querySelector(".display-result-again").classList.add("hide")
-    } else if (event.target.innerText !== questionaire[currentQuestionIndex.correct]) {  
+    } else if (event.target.innerText !== questionaire[currentQuestionIndex.correct]) {
         console.log("wrong")
-       document.querySelector(".display-result").classList.add("hide")
-       document.querySelector(".display-result-again").classList.remove("hide")
+        score -= 0
+        document.querySelector(".display-result").classList.add("hide")
+        document.querySelector(".display-result-again").classList.remove("hide")
     } else {
         document.querySelector(".display-result").classList.add("hide")
         document.querySelector(".display-result-again").classList.remove("hide")
         document.querySelector(".display-result").classList.add("hide")
-    
     }
     currentQuestionIndex++
     setNextQuestion()
-    
+    if (currentQuestionIndex === questionaire.length -1) {
+        console.log(getScore())}
 }
 
-
-//function checkAnswer (){
-  //  if(selectedButton === "booleans") {
-    //        console.log("correct")
-    //} else {
-      //  console.log("wrong")
-    //}
-        
-
-//}
+function getScore() {
+    //var lastQuestion = questionaire.length - 1
+   // if (lastQuestion) {
+        document.querySelector(".question-container").classList.add("hide")
+        document.querySelector(".finished-page").classList.remove("hide")
+        document.getElementById("pointScore").innerHTML = score;
+      
+     //  var message = scoreCounter / questionaire.length
+    //   message.document.getElementById("pointScore")
+}
 
 
