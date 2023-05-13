@@ -49,11 +49,12 @@ section {
    margin-top: 100px;
 }
 
-.question-container {
+.question-container, .finished-page {
     display: inline-block; 
     justify-content: center;
     margin-top: 100px;
     margin-left: 175px;
+    align-items: center;
 }
 
 #question {
