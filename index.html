@@ -12,14 +12,15 @@
 <body>
     <header>
         <div id="main">
-            <a href="/highscore.html" id="highscore-btn" class="btn">View high score</a>
+            <a href="./highscore.html" id="highscore-btn" class="btn" onclick="saveLastScore()">
+            View high score</a>
             <div id="display">Time: 0
     </header>
     <div class="container">
         <section>
             <h1 class="time" style="text-align:center;">Coding Quiz Challenge</h1>
             <p>Try to answer the following code-related questions within the time limit.
-                <br>Keep in mind that incorrect answers will penalize your score/time by 10 seconds!<br> <br>
+                <br> <br>
                 <button id="generate" class="btn">Start Quiz</button>
             </p>
         </section>
@@ -42,10 +43,12 @@
             <p>Your final score is <span id="pointScore"></span>/4</p>
             <label>Enter your initials:</label>
             <input type="text" id="initials">
-            <button id="sendScore" class="btn">Submit score</button>
+            <button id="sendScore" class="btn" onclick="saveLastScore()">Submit score</button>
           </section>
 
-    <script src="./script.js"></script>
+    <script src="./script.js">
+         window.localStorage.setItem("initials", "pointScore")
+    </script>
 </body>
 
 </html>
