@@ -13,7 +13,7 @@
     <header>
         <div id="main">
             <a href="./highscore.html" id="highscore-btn" class="btn" onclick="saveLastScore()">
-            View high score</a>
+                View high score</a>
             <div id="display">Time: 0
     </header>
     <div class="container">
@@ -27,7 +27,7 @@
     </div>
     </div>
 
-        <section class="hide question-container">
+    <section class="hide question-container">
         <div id="question">Question goes here</div><br><br>
         <div id="answer-buttons" class="btn-grid">
             <button id="answer1" class="btn" onclick="selectAnswer(event)"> Answer 1</button><br>
@@ -36,18 +36,18 @@
             <button id="answer4" class="btn" onclick="selectAnswer(event)"> Answer 4</button><br><br><br>
             <div class="hide display-result">Correct!</div>
             <div class="hide display-result-again">Wrong!</div>
-        </section>
+    </section>
 
-        <section class="hide finished-page">
-            <h2>Quiz Complete</h2>
-            <p>Your final score is <span id="pointScore"></span>/4</p>
-            <label>Enter your initials:</label>
-            <input type="text" id="initials">
-            <button id="sendScore" class="btn" onclick="saveLastScore()">Submit score</button>
-          </section>
+    <section class="hide finished-page">
+        <h2>Quiz Complete</h2>
+        <p>Your final score is <span id="pointScore"></span>/4</p>
+        <label>Enter your initials:</label>
+        <input type="text" id="initials">
+        <button id="sendScore" class="btn" onclick="saveLastScore()">Submit score</button>
+    </section>
 
     <script src="./script.js">
-         window.localStorage.setItem("initials", "pointScore")
+        window.localStorage.setItem("initials", "pointScore")
     </script>
 </body>
 

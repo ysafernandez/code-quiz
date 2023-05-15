@@ -109,15 +109,16 @@ function selectAnswer(event) {
     }
     currentQuestionIndex++
     setNextQuestion()
-    if (currentQuestionIndex === questionaire.length -1) {
+    if (currentQuestionIndex === questionaire.length - 1) {
         getScore();
         clearInterval() // check 
-}}
+    }
+}
 
 function getScore() {
-        document.querySelector(".question-container").classList.add("hide")
-        document.querySelector(".finished-page").classList.remove("hide")
-        document.getElementById("pointScore").innerHTML = score;
+    document.querySelector(".question-container").classList.add("hide")
+    document.querySelector(".finished-page").classList.remove("hide")
+    document.getElementById("pointScore").innerHTML = score;
 }
 
 var saveButton = document.getElementById("sendScore");
@@ -125,22 +126,22 @@ var savedName = document.getElementById("initials");
 var results = [];
 
 function saveLastScore() {
-  // Save related form data as an object
-  var userScore = {
-    initials: document.getElementById("initials").value, 
-  };
-  // Use .setItem() to store object in storage and JSON.stringify to convert it as a string
-  localStorage.setItem("initials", JSON.stringify(userScore));
-  console.log("hi")
+    // Save related form data as an object
+    var userScore = {
+        initials: document.getElementById("initials").value,
+    };
+    // Use .setItem() to store object in storage and JSON.stringify to convert it as a string
+    localStorage.setItem("initials", JSON.stringify(userScore));
+    console.log("hi")
 }
 
 function renderLastScore() {
-   // Use JSON.parse() to convert text to JavaScript object
-  var lastScore = JSON.parse(localStorage.getItem("pointScore"));
-  // Check if data is returned, if not exit out of the function
-  if (lastScore !== null) {
-    console.log("hello")
-     } else {
+    // Use JSON.parse() to convert text to JavaScript object
+    var lastScore = JSON.parse(localStorage.getItem("pointScore"));
+    // Check if data is returned, if not exit out of the function
+    if (lastScore !== null) {
+        console.log("hello")
+    } else {
         return;
     }
 }
@@ -148,23 +149,23 @@ function renderLastScore() {
 var highscore = 0;
 var highscore = localStorage.getItem("pointScore");
 
-if(highscore !== null){
+if (highscore !== null) {
     if (score > highscore) {
-        localStorage.setItem("pointScore", score);      
+        localStorage.setItem("pointScore", score);
     }
 }
-else{
+else {
     localStorage.setItem("pointScore", score);
 }
-  
+
 
 document.getElementById("sendScore").addEventListener("click", renderLastScore)
 
 
-saveButton.addEventListener("click", function(event) {
-event.preventDefault();
-saveLastScore();
-renderLastScore();
+saveButton.addEventListener("click", function (event) {
+    event.preventDefault();
+    saveLastScore();
+    renderLastScore();
 
 });
 
